@@ -6,8 +6,8 @@ import (
 	"os/exec"
 
 	docopt "github.com/docopt/docopt-go"
-	"github.com/jonstacks/tools/git"
-	"github.com/jonstacks/tools/jira"
+	"github.com/jonstacks/tools/pkg/git"
+	"github.com/jonstacks/tools/pkg/jira"
 )
 
 func handleError(err error) {
