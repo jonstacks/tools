@@ -19,11 +19,3 @@
 # [[override]]
 #  name = "github.com/x/y"
 #  version = "2.4.0"
-
-
-[[constraint]]
-  name = "github.com/docopt/docopt-go"
-  version = "0.6.2"
-
-[[constraint]]
-  name = "github.com/mitchellh/go-homedir"
