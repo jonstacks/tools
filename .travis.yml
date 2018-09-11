@@ -1,7 +1,6 @@
 language: go
 
 go:
-  - "1.8.x"
   - "1.9.x"
   - "1.10.x"
 
@@ -15,3 +14,4 @@ notifications:
 
 script:
 - go test -v -race $(go list ./... | grep -v /vendor/)  # Run all the tests with the race detector enabled
+- go build ./cmd/jira/...

@@ -40,7 +40,8 @@ Options:
 	if arguments["<issueKey>"] != nil {
 		key = arguments["<issueKey>"].(string)
 	} else {
-		key, err = git.CurrentBranch()
+		repo := git.NewRepo("")
+		key, err = repo.CurrentBranch()
 		handleError(err)
 	}
 
