@@ -24,6 +24,12 @@ func (r *Repo) CurrentBranch() (string, error) {
 	return strings.TrimSpace(out), err
 }
 
+// CommitHash returns the commit hash for a given repo
+func (r *Repo) CommitHash() (string, error) {
+	out, err := r.execute("rev-parse", "HEAD")
+	return strings.TrimSpace(out), err
+}
+
 func (r *Repo) execute(args ...string) (string, error) {
 	var out bytes.Buffer
 
