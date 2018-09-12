@@ -30,6 +30,23 @@ func (r *Repo) CommitHash() (string, error) {
 	return strings.TrimSpace(out), err
 }
 
+// Remotes returns the list of remotes
+func (r *Repo) Remotes() (map[string]string, error) {
+	remotes := make(map[string]string)
+	out, err := r.execute("remote", "-v")
+	if err != nil {
+		return remotes, err
+	}
+
+	for _, line := range strings.Split(out, "\n") {
+		fields := strings.Fields(line)
+		if len(fields) == 2 {
+			remotes[fields[0]] = fields[1]
+		}
+	}
+	return remotes, nil
+}
+
 func (r *Repo) execute(args ...string) (string, error) {
 	var out bytes.Buffer
 
