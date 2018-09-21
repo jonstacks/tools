@@ -31,18 +31,13 @@ func (r *Repo) CommitHash() (string, error) {
 }
 
 func (r *Repo) execute(args ...string) (string, error) {
-	var out bytes.Buffer
-
 	cmd := exec.Command("git", args...)
-	cmd.Stdout = &out
 	if r.path != "" {
 		cmd.Dir = r.path
 	}
 
-	if err := cmd.Run(); err != nil {
-		return "", err
-	}
-	return out.String(), nil
+	out, err := cmd.CombinedOutput()
+	return string(out), err
 }
 
 // ShallowClone does a shallow clone of the repo to the filepath given.
