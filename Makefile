@@ -9,6 +9,9 @@ help:
 	@echo "install  - Install command line tools"
 	@echo "release  - Packages up the command binaries into a zip file"
 
+build:
+	go build ./cmd/...
+
 deps:
 	dep ensure -v
 
