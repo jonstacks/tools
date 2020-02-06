@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
-	"os/exec"
+
+	"github.com/jonstacks/tools/pkg/utils"
 
 	docopt "github.com/docopt/docopt-go"
 	"github.com/jonstacks/tools/pkg/git"
@@ -50,7 +51,5 @@ Options:
 
 	url := issue.URL(config.Host)
 
-	openCmd := exec.Command("open", url)
-	err = openCmd.Run()
-	handleError(err)
+	handleError(utils.OpenInBrowser(url))
 }
