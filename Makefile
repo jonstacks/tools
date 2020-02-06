@@ -5,17 +5,13 @@ default: help
 
 .PHONY: help
 help:
-	@echo "deps     - Installs project dependencies"
 	@echo "install  - Install command line tools"
 	@echo "release  - Packages up the command binaries into a zip file"
 
 build:
 	go build ./cmd/...
 
-deps:
-	dep ensure -v
-
-install: deps
+install:
 	go install ./cmd/jira
 
 release:
