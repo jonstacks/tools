@@ -16,3 +16,5 @@ jobs:
           go-version: ${{ matrix.go }}
       - name: compile
         run: make build
+      - name: test with race conditions
+        run: go test -v -race ./...
