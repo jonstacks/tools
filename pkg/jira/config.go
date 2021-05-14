@@ -3,13 +3,17 @@ package jira
 import (
 	"encoding/json"
 	"io/ioutil"
+	"time"
 
 	homedir "github.com/mitchellh/go-homedir"
 )
 
 // Config struct for storing JSON data file
 type Config struct {
-	Host string
+	Host      string
+	UserEmail string `json:"user_email"`
+	APIToken  string `json:"api_token"`
+	Timeout   *time.Duration
 }
 
 // GetConfig reads the config file from the possible locations and then

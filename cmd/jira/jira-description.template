@@ -1,0 +1,5 @@
+[JIRA Link]({{ .Config.Host }}/browse/{{ .Issue.Key }})
+
+## Description
+
+{{ .Issue.Fields.Description }}

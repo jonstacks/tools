@@ -9,7 +9,13 @@ var issueRegex = regexp.MustCompile(`\w+\-\d+`)
 
 // Issue is a struct representing a JIRA issue.
 type Issue struct {
-	key string
+	ID     string `json:"id"`
+	Key    string `json:"key"`
+	Self   string `json:"self"`
+	Fields struct {
+		Description string `json:"description"`
+		Summary     string `json:"summmary"`
+	} `json:"fields"`
 }
 
 // ParseIssue tries to parse a JIRA key from a string. If it
@@ -19,16 +25,16 @@ func ParseIssue(key string) (*Issue, error) {
 	match := issueRegex.FindString(key)
 	if match == "" {
 		// No match was found
-		return nil, fmt.Errorf("Unable to parse Issue key from '%s'", key)
+		return nil, fmt.Errorf("unable to parse Issue key from '%s'", key)
 	}
-	return &Issue{match}, nil
+	return &Issue{Key: match}, nil
 }
 
 func (i Issue) String() string {
-	return i.key
+	return i.Key
 }
 
 // URL returns the URL for the JIRA issue
 func (i Issue) URL(h string) string {
-	return fmt.Sprintf("%s/browse/%s", h, i.key)
+	return fmt.Sprintf("%s/browse/%s", h, i.Key)
 }
