@@ -1,6 +1,5 @@
 # Tools 
-[![Build Status](https://travis-ci.org/jonstacks/tools.svg?branch=master)](https://travis-ci.org/jonstacks/tools)
-![Test](https://github.com/jonstacks/tools/workflows/Test/badge.svg)
+[![Test](https://github.com/jonstacks/tools/actions/workflows/test.yaml/badge.svg)](https://github.com/jonstacks/tools/actions/workflows/test.yaml)
 
 CLI Tools to Improve my Productivity.
 
